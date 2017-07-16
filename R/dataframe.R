@@ -1,8 +1,10 @@
 #' Convert from Pandas DataFrame
 #'
 #' @param convert_unicode whether to convert string columns to unicode so R can read back correctly
+#'
+#' @inheritParams base::as.data.frame
 #' @export
-as.data.frame.pandas.core.frame.DataFrame <- function(x, convert_unicode = TRUE , ...) {
+as.data.frame.pandas.core.frame.DataFrame <- function(x, ..., convert_unicode = TRUE) {
   feather_tmp <- tempfile(fileext = "feather")
 
   dtypes <- Map(function(x) { x$name }, unlist(x$dtypes$values))

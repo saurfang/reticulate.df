@@ -3,8 +3,11 @@
 language: R
 dist: trusty
 sudo: false
-cache: packages
 
+cache:
+  packages: true
+  directories:
+    - $HOME/.cache/pip
 addons:
   apt:
     packages:

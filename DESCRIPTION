@@ -6,7 +6,7 @@ Authors@R: c(
   person("Forest", "Fang", role = c("aut", "cre"), email = "forest.fang@outlook.com")
   )
 Description: Convert between R data.frame and Python pandas DataFrame using Reticulate via Apache Arrow (feather.)
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: reticulate,

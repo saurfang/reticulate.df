@@ -3,7 +3,7 @@ context("iris")
 test_that("iris r_to_py", {
   iris_csv <- tempfile("iris", fileext = "csv")
 
-  readr::write_csv(iris, iris_csv)
+  write.csv(iris, iris_csv, row.names = FALSE)
 
   pandas <- reticulate::import("pandas")
   py_iris <- pandas$read_csv(iris_csv)
@@ -21,7 +21,7 @@ test_that("iris r_to_py", {
 test_that("iris py_to_r", {
   iris_csv <- tempfile("iris", fileext = "csv")
 
-  readr::write_csv(iris, iris_csv)
+  write.csv(iris, iris_csv, row.names = FALSE)
 
   pandas <- reticulate::import("pandas")
   py_iris <- pandas$read_csv(iris_csv, encoding = "utf8")

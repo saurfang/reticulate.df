@@ -4,10 +4,14 @@
 \alias{as.data.frame.pandas.core.frame.DataFrame}
 \title{Convert from Pandas DataFrame}
 \usage{
-\method{as.data.frame}{pandas.core.frame.DataFrame}(x, convert_unicode = TRUE,
-  ...)
+\method{as.data.frame}{pandas.core.frame.DataFrame}(x, ...,
+  convert_unicode = TRUE)
 }
 \arguments{
+\item{x}{any \R object.}
+
+\item{...}{additional arguments to be passed to or from methods.}
+
 \item{convert_unicode}{whether to convert string columns to unicode so R can read back correctly}
 }
 \description{
