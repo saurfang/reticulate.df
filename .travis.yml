@@ -8,15 +8,10 @@ cache:
   packages: true
   directories:
     - $HOME/.cache/pip
-addons:
-  apt:
-    packages:
-      - python2.7
-      - python-pandas
 
 before_script:
   - export PATH=$HOME/.local/bin:$PATH
-  - pip install feather-format --user `whoami`
+  - pip install feather-format pandas --user `whoami`
 
 r_binary_packages:
   - BH
