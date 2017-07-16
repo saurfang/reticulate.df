@@ -15,6 +15,8 @@ library(dplyr)
 
 # reticulate.df
 
+[![Travis-CI Build Status](https://travis-ci.org/saurfang/reticulate.df.svg?branch=master)](https://travis-ci.org/saurfang/reticulate.df)
+
 The goal of reticulate.df is to experiment conversion between R data.frame and Python pandas DataFrame in reticulate.
 
 ## Installation

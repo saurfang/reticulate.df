@@ -1,6 +1,7 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
+compiler: gcc
 sudo: false
 cache: packages
 
@@ -9,7 +10,27 @@ addons:
     packages:
       - python2.7
       - python-pandas
+      - gcc-4.4
+      - g++-4.4
 
 before_script:
   - export PATH=$HOME/.local/bin:$PATH
   - pip install feather-format --user `whoami`
+
+r_binary_packages:
+  - BH
+  - crayon
+  - DBI
+  - dplyr
+  - lazyeval
+  - magrittr
+  - praise
+  - Rcpp
+  - testthat
+
+before_install:
+- mkdir -p ~/.R
+- echo "CC = gcc-4.4 -std=gnu99"    >> ~/.R/Makevars
+- echo "CXX = g++-4.4"              >> ~/.R/Makevars
+- echo "CXX1X = g++-4.4 -std=c++0x" >> ~/.R/Makevars
+- echo "CXX1XSTD = -std=c++0x"      >> ~/.R/Makevars
