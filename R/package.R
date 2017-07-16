@@ -1,4 +1,4 @@
-PANDAS <- NULL; PY_FEATHER <- NULL
+PANDAS <- NULL; PY_FEATHER <- NULL; PY_BULTIN <- NULL
 
 .onLoad <- function(libname, pkgname) {
 
@@ -10,5 +10,7 @@ PANDAS <- NULL; PY_FEATHER <- NULL
     if (reticulate::py_module_available("feather")) {
       PY_FEATHER <<- reticulate::import("feather", delay_load = TRUE)
     }
+
+    PY_BULTIN <<- reticulate::import_builtins()
   }
 }

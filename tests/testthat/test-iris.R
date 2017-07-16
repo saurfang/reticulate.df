@@ -6,7 +6,7 @@ test_that("iris r_to_py", {
   readr::write_csv(iris, iris_csv)
 
   pandas <- reticulate::import("pandas")
-  py_iris <- pandas$read_csv(iris_csv, encoding = "utf8")
+  py_iris <- pandas$read_csv(iris_csv)
 
   iris$Species <- as.character(iris$Species)
   expect_null(

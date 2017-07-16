@@ -1,0 +1,67 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+library(dplyr)
+```
+
+# reticulate.df
+
+The goal of reticulate.df is to experiment conversion between R data.frame and Python pandas DataFrame in reticulate.
+
+## Installation
+
+You can install reticulate.df from github with:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("saurfang/reticulate.df")
+```
+
+## Example
+
+From Python to R
+
+```{r example}
+library(reticulate.df)
+
+library(reticulate)
+pd <- import("pandas")
+np <- import("numpy")
+
+
+df <- pd$DataFrame(
+  list(
+    'A' = 1.,
+    'B' = pd$Timestamp('20130102'),
+    'C' = pd$Series(1, index = seq(4), dtype = 'float32'),
+    'D' = np$array(rep(3L, 4), dtype='int32'),
+    'E' = pd$Categorical(c("test","train","test","train")),
+    'F' = 'foo'
+  )
+)
+class(df)
+
+as.data.frame(df)
+```
+
+From R to Python
+
+```{r}
+py_longley <- as_pandas(longley)
+
+# http://scikit-learn.org/stable/tutorial/statistical_inference/supervised_learning.html#linear-regression
+sklearn <- import("sklearn")
+regr <- sklearn$linear_model$LinearRegression()
+regr$fit(as_pandas(select(longley, -Employed)), py_longley$Employed)
+regr$coef_
+```
+
